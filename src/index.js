@@ -47,7 +47,6 @@ export default {
 		
 		
 		
-  		return new Response(' End in 2 Letters ' + lastTwoLetters);
 		} 
 		
 	//If not, do the usual Auth message	
@@ -55,15 +54,14 @@ export default {
   			// Create a function to get the current time and format it
 		function getCurrentTime() {
   		var currentTime = new Date();
-  		var formattedTime = currentTime.toLocaleTimeString();
-  		return formattedTime;
+  		return currentTime;
 		}
 
 		// Get the current time
 	var currentTime = getCurrentTime();
 
 		// Create an HTML response with the time
-	var htmlResponse = "<!DOCTYPE html> <body> <p>"+request.headers.get("Cf-Access-Authenticated-User-Email")+ " authenticated at " + currentTime + " from <a href = https://tunnel.zachi.online/secure/"+ request.cf.country + ">" + request.cf.country + "</a> </p> </body> </html> " ;
+	var htmlResponse = "<!DOCTYPE html> <body> <p>"+request.headers.get("Cf-Access-Authenticated-User-Email")+ " is authenticated at " + currentTime + " from <a href = https://tunnel.zachi.online/secure/"+ request.cf.country + ">" + request.cf.country + "</a> </p> </body> </html> " ;
 	
 	const myHeaders = new Headers();
 	myHeaders.append("Content-Type", "text/html");
